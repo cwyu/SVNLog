@@ -14,8 +14,8 @@
     <!-- MySQL Information -->
     <mysql>
         <hostname description="or IP address">localhost</hostname>
-        <username>cwyu</username>
-        <password>openfoundry</password>
+        <username>USERNAME</username>
+        <password>PASSWORD</password>
         <output>
             <database description="all SQLite repositories into one MySQL database">svnplot</database>
             <new-field description="distinguish repositories in one MySQL database">project</new-field>
