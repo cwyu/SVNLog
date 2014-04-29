@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuration File -->
+
+<config>
+
+    <!-- Website Information -->
+    <subversion>
+        <url>
+            <websvn description="name list of all repositories">http://www.openfoundry.org/websvn</websvn>
+            <homepage description="link prefix for revision of one repository">http://svn.openfoundry.org/</homepage>
+        </url>
+    </subversion>
+
+    <!-- MySQL Information -->
+    <mysql>
+        <hostname description="or IP address">localhost</hostname>
+        <username>cwyu</username>
+        <password>openfoundry</password>
+        <output>
+            <database description="all SQLite repositories into one MySQL database">svnplot</database>
+            <new-field description="distinguish repositories in one MySQL database">project</new-field>
+        </output>
+        <resource>
+            <database-skeleton>
+                <file>./resource/database-skeleton.sqlite</file>
+            </database-skeleton>
+        </resource>
+    </mysql>
+
+    <!-- SQLite Information -->
+    <sqlite>
+        <output>
+            <graph description="generate svnplot graph, yes or no">yes</graph>
+            <directory>
+                <database description="save *.sqlite files">database</database>
+                <mirrors description="save repository clone copy in local for speed up">mirrors</mirrors>
+                <svnplot description="save svnplot graphs">svnplot</svnplot>
+            </directory>
+        </output>
+    </sqlite>
+
+    <!-- Program Information -->
+    <program>
+        <open-source>
+            <sqlite3-to-mysql>
+                <file>./tool/open-source/sqlite3-to-mysql.py</file>
+            </sqlite3-to-mysql>
+        </open-source>
+        <set-priority description="linux setuid program for update_now service">
+            <source-file>./set-priority.c</source-file>
+            <executable>
+                <directory>bin</directory>
+                <filename>set-priority</filename>
+            </executable>
+        </set-priority>
+        <fetch-script>
+            <file>./fetch-sqlite-to-mysql.sh</file>
+        </fetch-script>
+    </program>
+
+    <!-- Log Information -->
+    <log description="log message on 'fetch-sqlite-to-mysql.sh' script">
+        <enable description="yes or no">yes</enable>
+        <file description="write permission is required">./log.txt</file>
+    </log>
+</config>
